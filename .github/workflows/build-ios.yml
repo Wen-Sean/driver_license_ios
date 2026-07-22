@@ -45,8 +45,15 @@ jobs:
                      CODE_SIGN_IDENTITY="" \
                      CODE_SIGNING_REQUIRED=NO
 
-      - name: 7. 上傳編譯檔案至 GitHub (Upload Artifact)
+      - name: 7. 打包產物封裝為 IPA 格式
+        run: |
+          mkdir -p build/Payload
+          cp -r build/Build/Products/Release-iphoneos/App.app build/Payload/
+          cd build
+          zip -r 2026-DriverLicense-iOS.ipa Payload
+
+      - name: 8. 上傳 IPA 檔至 GitHub Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: iOS-App-Build
-          path: build/Build/Products/Release-iphoneos/App.app
+          name: 2026-DriverLicense-iOS-IPA
+          path: build/2026-DriverLicense-iOS.ipa
