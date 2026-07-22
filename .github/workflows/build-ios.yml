@@ -45,13 +45,8 @@ jobs:
                      CODE_SIGN_IDENTITY="" \
                      CODE_SIGNING_REQUIRED=NO
 
-      - name: 7. 壓縮打包產物
-        run: |
-          cd build/Build/Products/Release-iphoneos
-          zip -r ../../../App-iOS-Build.zip App.app
-
-      - name: 8. 上傳編譯檔案至 GitHub (Upload Artifact)
+      - name: 7. 上傳編譯檔案至 GitHub (Upload Artifact)
         uses: actions/upload-artifact@v4
         with:
           name: iOS-App-Build
-          path: App-iOS-Build.zip
+          path: build/Build/Products/Release-iphoneos/App.app
