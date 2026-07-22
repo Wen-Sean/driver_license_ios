@@ -1,0 +1,11 @@
+{
+  "appId": "com.drivertest.app2026",
+  "appName": "2026汽車筆試極速通關",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "ios": {
+    "contentInset": "always"
+  }
+}
