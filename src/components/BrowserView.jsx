@@ -19,9 +19,9 @@ export default function BrowserView({
   }, [questionIds, questions]);
 
   return (
-    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-24 animate-fade-in">
+    <div className="flex flex-col h-screen h-dvh w-full bg-slate-50 overflow-hidden animate-fade-in">
       {/* Sticky Header */}
-      <div className="px-4 pt-6 pb-4 flex justify-between items-center bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
+      <div className="shrink-0 px-4 pb-4 flex justify-between items-center bg-white z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <button 
           onClick={() => navigate('home')} 
           className="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
@@ -44,7 +44,7 @@ export default function BrowserView({
         )}
       </div>
 
-      <div className="flex-1 p-4 max-w-md mx-auto w-full">
+      <div className="flex-1 overflow-y-auto p-4 pb-28 max-w-md mx-auto w-full">
         {matchingQuestions.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-gray-400">
             <FileText size={48} className="mb-3 opacity-20" />

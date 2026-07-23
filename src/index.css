@@ -51,11 +51,11 @@ html, body {
 }
 
 .ios-safe-top {
-  padding-top: calc(env(safe-area-inset-top) + 0.4rem);
+  padding-top: max(1.25rem, calc(env(safe-area-inset-top) + 0.5rem)) !important;
 }
 
 .ios-safe-bottom {
-  padding-bottom: calc(env(safe-area-inset-bottom) + 0.8rem);
+  padding-bottom: max(0.8rem, calc(env(safe-area-inset-bottom) + 0.8rem)) !important;
 }
 
 .animate-fade-in {

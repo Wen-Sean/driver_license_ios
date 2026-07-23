@@ -192,9 +192,9 @@ export default function App() {
   const favoriteIds = userProgress.bookmarks || [];
 
   return (
-    <div className="w-full min-h-screen min-h-dvh flex-1 bg-slate-50 text-slate-900 font-sans selection:bg-blue-200 relative flex flex-col overflow-x-hidden">
+    <div className="w-full h-screen h-dvh bg-slate-50 text-slate-900 font-sans selection:bg-blue-200 relative flex flex-col overflow-hidden">
       {/* Native Full-Screen App Screen */}
-      <div className="flex-1 w-full flex flex-col">
+      <div className="flex-1 w-full flex flex-col overflow-hidden">
         {currentView === 'home' && (
           <HomeView 
             questions={questions}

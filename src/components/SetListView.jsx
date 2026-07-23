@@ -24,9 +24,9 @@ export default function SetListView({ navigate, onSelectSet, userProgress, total
   });
 
   return (
-    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-24 animate-fade-in">
+    <div className="flex flex-col h-screen h-dvh w-full bg-slate-50 overflow-hidden animate-fade-in">
       {/* Sticky Header with iOS safe padding */}
-      <div className="px-4 pt-6 pb-4 flex justify-between items-center bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
+      <div className="shrink-0 px-4 pb-4 flex justify-between items-center bg-white z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <button 
           onClick={() => navigate('home')} 
           className="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
@@ -37,7 +37,7 @@ export default function SetListView({ navigate, onSelectSet, userProgress, total
         <div className="w-10"></div>
       </div>
 
-      <div className="flex-1 p-4 max-w-md mx-auto w-full">
+      <div className="flex-1 overflow-y-auto p-4 pb-28 max-w-md mx-auto w-full">
         <div className="grid grid-cols-2 gap-3">
           {sets.map((set) => {
             const isCompleted = set.completed;

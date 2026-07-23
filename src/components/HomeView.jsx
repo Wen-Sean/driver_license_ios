@@ -20,9 +20,9 @@ export default function HomeView({ questions, userProgress, navigate, onStartMoc
   const overallPercentage = Math.min(100, Math.round((completedQuestionsCount / TOTAL_QUESTIONS) * 100));
 
   return (
-    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-24 overflow-y-auto animate-fade-in">
+    <div className="flex flex-col h-screen h-dvh w-full bg-slate-50 overflow-hidden animate-fade-in">
       {/* Top Header with iOS safe area handling */}
-      <div className="px-6 pt-8 pb-4 flex justify-between items-center bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
+      <div className="shrink-0 px-6 pb-4 flex justify-between items-center bg-white z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-600 p-0.5 shadow-md">
             <div className="w-full h-full bg-white rounded-full flex items-center justify-center text-blue-600 font-bold text-lg">
@@ -47,7 +47,7 @@ export default function HomeView({ questions, userProgress, navigate, onStartMoc
         </div>
       </div>
 
-      <div className="px-5 pt-6 max-w-md mx-auto w-full space-y-6">
+      <div className="flex-1 overflow-y-auto px-5 pt-6 pb-28 max-w-md mx-auto w-full space-y-6">
         {/* Main Learning Progress Card */}
         <div className="bg-white rounded-[28px] p-6 shadow-sm border border-gray-100 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 opacity-60"></div>

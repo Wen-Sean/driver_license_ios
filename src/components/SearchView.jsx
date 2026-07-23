@@ -16,9 +16,9 @@ export default function SearchView({ navigate, onSelectQuestion, questions = [],
   }, [query, questions]);
 
   return (
-    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-24 animate-fade-in">
+    <div className="flex flex-col h-screen h-dvh w-full bg-slate-50 overflow-hidden animate-fade-in">
       {/* Search Header */}
-      <div className="px-4 pt-6 pb-3 bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
+      <div className="shrink-0 px-4 pb-3 bg-white z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <div className="flex items-center gap-2 mb-3">
           <button 
             onClick={() => navigate('home')} 
@@ -41,7 +41,7 @@ export default function SearchView({ navigate, onSelectQuestion, questions = [],
         </div>
       </div>
 
-      <div className="flex-1 p-4 max-w-md mx-auto w-full">
+      <div className="flex-1 overflow-y-auto p-4 pb-28 max-w-md mx-auto w-full">
         {query.trim() === "" ? (
           <div className="flex flex-col items-center justify-center py-16 text-gray-400">
             <Search size={40} className="mb-3 opacity-30" />
