@@ -25,7 +25,7 @@ export default function ResultView({
   }, [isPass]);
 
   return (
-    <div className="flex flex-col min-h-full bg-slate-50 relative pb-28 animate-fade-in">
+    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-28 animate-fade-in">
       {/* Header */}
       <div className="px-4 pt-6 pb-4 flex justify-between items-center bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <button 
@@ -122,10 +122,11 @@ export default function ResultView({
                   {/* Options review */}
                   <div className="flex flex-col gap-2 pt-1">
                     {(q.options || []).map((opt, oIdx) => {
-                      const isThisCorrectAnswer = q.answer === oIdx;
-                      const isThisUserAnswer = userAnswer === oIdx;
+                      const optNum = oIdx + 1;
+                      const isThisCorrectAnswer = q.answer === optNum;
+                      const isThisUserAnswer = userAnswer === optNum;
 
-                      let optStyle = "text-gray-600 text-[13px] p-3 rounded-xl border border-gray-100 bg-gray-50";
+                      let optStyle = "text-gray-600 text-[13px] p-3 rounded-xl border border-gray-100 bg-gray-50 flex justify-between items-center";
 
                       if (isThisCorrectAnswer) {
                         optStyle = "text-emerald-900 bg-emerald-50 border-emerald-300 font-bold text-[13px] p-3 rounded-xl border flex justify-between items-center shadow-xs";
@@ -135,12 +136,51 @@ export default function ResultView({
 
                       return (
                         <div key={oIdx} className={optStyle}>
-                          <span className="flex-1 leading-relaxed">{opt}</span>
-                          {isThisCorrectAnswer && <CheckCircle2 size={16} className="text-emerald-600 shrink-0 ml-2"/>}
-                          {isThisUserAnswer && !isCorrect && <XCircle size={16} className="text-rose-500 shrink-0 ml-2"/>}
+                          <div className="flex items-start gap-2 flex-1">
+                            <span className="w-5 h-5 rounded-full bg-white/80 border border-gray-200 flex items-center justify-center text-xs font-bold shrink-0 font-num">
+                              {optNum}
+                            </span>
+                            <span className="leading-relaxed">{opt}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                            {isThisCorrectAnswer && (
+                              <span className="text-[11px] bg-emerald-600 text-white px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+                                <CheckCircle2 size={12} /> 正確答案
+                              </span>
+                            )}
+                            {isThisUserAnswer && !isCorrect && (
+                              <span className="text-[11px] bg-rose-500 text-white px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+                                <XCircle size={12} /> 您的回答
+                              </span>
+                            )}
+                          </div>
                         </div>
                       );
                     })}
+                  </div>
+
+                  {/* Explicit Correct Answer Callout */}
+                  <div className={`mt-2 p-3 rounded-xl border text-xs ${
+                    isCorrect 
+                      ? 'bg-emerald-50 border-emerald-200 text-emerald-800' 
+                      : 'bg-rose-50 border-rose-200 text-rose-800'
+                  }`}>
+                    {isCorrect ? (
+                      <div className="flex items-center gap-1.5 font-bold">
+                        <CheckCircle2 size={15} className="text-emerald-600" />
+                        <span>回答正確！標準答案為第 ({q.answer}) 項</span>
+                      </div>
+                    ) : (
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-1.5 font-bold text-rose-700">
+                          <XCircle size={15} className="text-rose-600" />
+                          <span>{isSkipped ? '未作答' : '回答錯誤'}</span>
+                        </div>
+                        <div className="text-[13px] leading-relaxed">
+                          正確標準答案為第 <span className="font-extrabold text-emerald-700 font-num">({q.answer})</span> 項：<span className="font-bold text-emerald-900">{q.options ? q.options[q.answer - 1] : ''}</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               );

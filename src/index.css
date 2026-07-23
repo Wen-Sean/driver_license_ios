@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --bg-app: #090c12;
-  --bg-surface: rgba(255, 255, 255, 0.035);
-  --bg-surface-active: rgba(255, 255, 255, 0.08);
-  --border-surface: rgba(255, 255, 255, 0.08);
+  --bg-app: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.8);
+  --bg-surface-active: rgba(255, 255, 255, 0.95);
+  --border-surface: rgba(226, 232, 240, 0.8);
 
   --accent-blue: #0a84ff;
   --accent-blue-soft: rgba(10, 132, 255, 0.14);
@@ -30,21 +30,24 @@
   -webkit-touch-callout: none;
 }
 
-body {
+html, body {
   font-family: var(--font-tc);
-  background-color: var(--bg-app);
-  color: #f2f4f8;
+  background-color: #f8fafc;
+  color: #0f172a;
+  height: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
   -webkit-overflow-scrolling: touch;
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(10, 132, 255, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(48, 209, 88, 0.05) 0px, transparent 50%);
-  background-attachment: fixed;
+}
+
+#root {
+  min-height: 100%;
+  min-height: 100dvh;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
 }
 
 .ios-safe-top {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { 
-  Bell, Search, Trophy, LayoutList, XCircle, 
+  Search, Trophy, LayoutList, XCircle, 
   FolderHeart, Play, ChevronRight, RotateCcw, Sparkles
 } from 'lucide-react';
 import CircularProgress from './CircularProgress';
@@ -20,7 +20,7 @@ export default function HomeView({ questions, userProgress, navigate, onStartMoc
   const overallPercentage = Math.min(100, Math.round((completedQuestionsCount / TOTAL_QUESTIONS) * 100));
 
   return (
-    <div className="flex flex-col min-h-full bg-slate-50 relative pb-24 overflow-y-auto animate-fade-in">
+    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-24 overflow-y-auto animate-fade-in">
       {/* Top Header with iOS safe area handling */}
       <div className="px-6 pt-8 pb-4 flex justify-between items-center bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <div className="flex items-center gap-3">
@@ -43,10 +43,6 @@ export default function HomeView({ questions, userProgress, navigate, onStartMoc
             className="p-2 bg-gray-50 rounded-full text-gray-500 hover:bg-red-50 hover:text-red-500 transition-colors"
           >
             <RotateCcw size={18} />
-          </button>
-          <button className="p-2 bg-gray-50 rounded-full text-gray-600 hover:bg-gray-100 relative">
-            <Bell size={18} />
-            <span className="absolute top-1.5 right-1.5 bg-red-500 w-2 h-2 rounded-full"></span>
           </button>
         </div>
       </div>

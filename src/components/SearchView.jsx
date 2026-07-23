@@ -16,7 +16,7 @@ export default function SearchView({ navigate, onSelectQuestion, questions = [],
   }, [query, questions]);
 
   return (
-    <div className="flex flex-col min-h-full bg-slate-50 relative pb-24 animate-fade-in">
+    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-24 animate-fade-in">
       {/* Search Header */}
       <div className="px-4 pt-6 pb-3 bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <div className="flex items-center gap-2 mb-3">

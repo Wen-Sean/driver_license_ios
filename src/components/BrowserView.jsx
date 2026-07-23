@@ -19,7 +19,7 @@ export default function BrowserView({
   }, [questionIds, questions]);
 
   return (
-    <div className="flex flex-col min-h-full bg-slate-50 relative pb-24 animate-fade-in">
+    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-24 animate-fade-in">
       {/* Sticky Header */}
       <div className="px-4 pt-6 pb-4 flex justify-between items-center bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
         <button 

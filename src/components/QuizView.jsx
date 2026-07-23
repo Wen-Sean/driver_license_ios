@@ -37,7 +37,7 @@ export default function QuizView({
   const isFavorite = favorites.includes(question.id);
 
   const handleSelectOption = (index) => {
-    setUserAnswers(prev => ({ ...prev, [currentIndex]: index }));
+    setUserAnswers(prev => ({ ...prev, [currentIndex]: index + 1 }));
   };
 
   const handleNext = () => {
@@ -91,7 +91,7 @@ export default function QuizView({
   };
 
   return (
-    <div className="flex flex-col min-h-full bg-slate-50 relative pb-28 animate-fade-in">
+    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-28 animate-fade-in">
       {/* Top Sticky Bar with iOS safe area handling */}
       <div className="px-4 pt-6 pb-4 flex justify-between items-center bg-white border-b border-gray-100 shadow-sm sticky top-0 z-20 ios-safe-top">
         <button 
@@ -168,7 +168,7 @@ export default function QuizView({
         {/* Options List */}
         <div className="flex flex-col gap-3">
           {(question.options || []).map((option, index) => {
-            const isSelected = userAnswers[currentIndex] === index;
+            const isSelected = userAnswers[currentIndex] === index + 1;
 
             let borderStyle = "border-gray-200 hover:border-blue-400 bg-white text-gray-700";
             if (isSelected) borderStyle = "border-blue-500 bg-blue-50 ring-2 ring-blue-100 text-blue-800";
