@@ -64,7 +64,7 @@ export default function BrowserView({
 
             <div className="flex flex-col gap-3">
               {matchingQuestions.map((q) => (
-                <div key={q.id} className="bg-white p-4.5 rounded-2xl border border-gray-100 shadow-sm relative pr-12 space-y-2.5">
+                <div key={q.id} className="bg-white p-5 pr-12 rounded-2xl border border-gray-100 shadow-sm relative space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-xs font-bold text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full font-num">
                       題號 #{q.id}

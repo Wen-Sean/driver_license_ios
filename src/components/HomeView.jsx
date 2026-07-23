@@ -147,7 +147,7 @@ export default function HomeView({ questions, userProgress, navigate, onStartMoc
           onClick={onStartMockExam}
           className="w-full bg-gray-900 text-white rounded-[28px] p-1 shadow-lg shadow-gray-900/20 active:scale-95 transition-transform text-left"
         >
-          <div className="border border-gray-700/80 rounded-[24px] p-4.5 flex items-center justify-between">
+          <div className="border border-gray-700/80 rounded-[24px] p-5 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-md shadow-blue-500/30 shrink-0">
                 <Play size={22} className="text-white ml-0.5" fill="currentColor" />

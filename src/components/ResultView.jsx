@@ -25,9 +25,9 @@ export default function ResultView({
   }, [isPass]);
 
   return (
-    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-28 animate-fade-in">
+    <div className="flex flex-col h-screen h-dvh w-full bg-slate-50 overflow-hidden animate-fade-in">
       {/* Header */}
-      <div className="px-4 pt-6 pb-4 flex justify-between items-center bg-white sticky top-0 z-20 shadow-sm border-b border-gray-100 ios-safe-top">
+      <div className="shrink-0 px-4 pt-6 pb-4 flex justify-between items-center bg-white border-b border-gray-100 shadow-sm z-20 ios-safe-top">
         <button 
           onClick={() => navigate('home')} 
           className="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
@@ -38,7 +38,7 @@ export default function ResultView({
         <div className="w-10"></div>
       </div>
 
-      <div className="flex-1 p-5 max-w-md mx-auto w-full space-y-6">
+      <div className="flex-1 overflow-y-auto p-5 max-w-md mx-auto w-full space-y-6 pb-6">
         {/* Pass / Fail Banner */}
         <div className="flex flex-col items-center justify-center text-center mt-2">
           <div 
@@ -82,7 +82,7 @@ export default function ResultView({
               const isSkipped = userAnswer === undefined || userAnswer === null;
 
               return (
-                <div key={q.id || idx} className="bg-white p-4.5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
+                <div key={q.id || idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-0.5 rounded-md font-num">
                       第 {idx + 1} 題 (題號 #{q.id})
@@ -190,7 +190,7 @@ export default function ResultView({
       </div>
 
       {/* Fixed Bottom Controls */}
-      <div className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md p-4 border-t border-gray-100 z-30 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.05)] ios-safe-bottom">
+      <div className="shrink-0 w-full bg-white/95 backdrop-blur-md p-4 border-t border-gray-100 z-30 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.05)] ios-safe-bottom">
         <div className="max-w-md mx-auto flex gap-3">
           <button 
             onClick={() => navigate('mistakes')} 

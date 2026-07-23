@@ -60,7 +60,7 @@ export default function SearchView({ navigate, onSelectQuestion, questions = [],
               找到 <span className="font-bold text-blue-600 font-num">{results.length}</span> 筆相關考題
             </div>
             {results.map((q) => (
-              <div key={q.id} className="bg-white p-4.5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
+              <div key={q.id} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm space-y-3">
                 <div className="flex justify-between items-center">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full font-num">

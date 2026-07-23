@@ -91,9 +91,9 @@ export default function QuizView({
   };
 
   return (
-    <div className="flex flex-col min-h-screen min-h-dvh flex-1 bg-slate-50 relative pb-28 animate-fade-in">
-      {/* Top Sticky Bar with iOS safe area handling */}
-      <div className="px-4 pt-6 pb-4 flex justify-between items-center bg-white border-b border-gray-100 shadow-sm sticky top-0 z-20 ios-safe-top">
+    <div className="flex flex-col h-screen h-dvh w-full bg-slate-50 overflow-hidden animate-fade-in">
+      {/* Top Fixed Bar with iOS safe area handling */}
+      <div className="shrink-0 px-4 pt-6 pb-4 flex justify-between items-center bg-white border-b border-gray-100 shadow-sm z-20 ios-safe-top">
         <button 
           onClick={handleBackWithConfirm} 
           className="p-2 text-gray-600 hover:bg-gray-100 rounded-full transition-colors"
@@ -115,8 +115,8 @@ export default function QuizView({
         </button>
       </div>
 
-      {/* Main Content Area */}
-      <div className="flex-1 p-5 max-w-md mx-auto w-full">
+      {/* Main Content Area - Scrollable */}
+      <div className="flex-1 overflow-y-auto p-5 max-w-md mx-auto w-full pb-6">
         {/* Progress Bar */}
         <div className="flex items-center gap-3 mb-5">
           <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -195,7 +195,7 @@ export default function QuizView({
       </div>
 
       {/* Fixed Bottom Action Bar */}
-      <div className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md p-4 border-t border-gray-100 z-30 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.05)] ios-safe-bottom">
+      <div className="shrink-0 w-full bg-white/95 backdrop-blur-md p-4 border-t border-gray-100 z-30 shadow-[0_-10px_20px_-10px_rgba(0,0,0,0.05)] ios-safe-bottom">
         <div className="max-w-md mx-auto flex gap-3">
           <button
             onClick={handlePrev}
